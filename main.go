@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -27,5 +29,7 @@ func main() {
 	router.SetupRoutes(app)
 	router.ServeUI(app)
 
-	app.Listen(":9000")
+	if err := app.Listen(":9000"); err != nil {
+		log.Printf("Couldn't start the server\n%s\n", err.Error())
+	}
 }
