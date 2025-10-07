@@ -3,10 +3,11 @@ package main
 import (
 	"log"
 
+	"github.com/gofiber/contrib/fiberzap/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"go.uber.org/zap"
 
 	"go-react/database"
 	"go-react/router"
@@ -18,8 +19,13 @@ func init() {
 
 func main() {
 	app := fiber.New()
+	logger, _ := zap.NewProduction()
+	defer logger.Sync()
 
-	app.Use(logger.New())
+	app.Use(fiberzap.New(fiberzap.Config{
+		Logger: logger,
+	}))
+
 	app.Use(recover.New())
 
 	// Use Explicit CORS policies in Production ⚠️.
