@@ -27,7 +27,7 @@ func ConnectDB() {
 
 func makeMigrations() {
 	log.Println("Making Migrations...")
-	err := DB.AutoMigrate(&models.Joke{})
+	err := DB.AutoMigrate(&models.Note{})
 	if err != nil {
 		log.Fatal(err)
 	}
