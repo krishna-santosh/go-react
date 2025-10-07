@@ -28,10 +28,10 @@ function IndexPage() {
     onSuccess: () => {
       setNote("");
       queryClient.invalidateQueries({ queryKey: ["notes"] });
-      toast?.success("Note created!");
+      toast.success("Note created!");
     },
     onError: (err: any) => {
-      toast?.error(err.message || "Something went wrong");
+      toast.error(err.message || "Something went wrong");
     },
   });
 
