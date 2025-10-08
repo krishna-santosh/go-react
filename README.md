@@ -47,3 +47,7 @@ The final output of this template is a standalone executable binary. This single
 * **🚀 Rapid Development**
 
   Benefit from fast Go compilation and hot-reloading frontend development with React's powerful tooling.
+
+---
+
+![Go React Preview](preview.png)
