@@ -1,7 +1,14 @@
 {
-    "cSpell.words": [
-        "gofiber",
-        "gorm",
-        "solidjs",
-    ]
+  "cSpell.words": ["gofiber", "gorm", "solidjs"],
+  // Make VS Code use Biome from the frontend folder
+  "biome.lsp.bin": "ui/node_modules/.bin/biome",
+  "biome.configurationPath": "ui/biome.json",
+
+  // Optional: tell Prettier to chill if installed globally
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+
+  // TS / React support for ui/
+  "typescript.tsdk": "ui/node_modules/typescript/lib",
+  "eslint.workingDirectories": [{ "directory": "ui", "changeProcessCWD": true }]
 }
