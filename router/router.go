@@ -1,13 +1,13 @@
 package router
 
 import (
-	"go-react/handlers"
-
 	"github.com/gofiber/fiber/v2"
+
+	"go-react/handlers"
 )
 
 func SetupRoutes(app *fiber.App) {
-	app.Get("/api/jokes/", handlers.GetSavedJokes)
-	app.Post("/api/jokes/:id/save", handlers.SaveJoke)
-	app.Delete("/api/jokes/:id/delete", handlers.DeleteSavedJoke)
+	app.Get("/api/notes", handlers.GetNotes)
+	app.Post("/api/notes", handlers.CreateNote)
+	app.Delete("/api/notes/:id", handlers.DeleteNote)
 }
